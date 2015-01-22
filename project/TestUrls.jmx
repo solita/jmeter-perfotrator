@@ -6,7 +6,18 @@
       <boolProp name="TestPlan.functional_mode">false</boolProp>
       <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
       <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
-        <collectionProp name="Arguments.arguments"/>
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="THREADS" elementType="Argument">
+            <stringProp name="Argument.name">THREADS</stringProp>
+            <stringProp name="Argument.value">15</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="LOOPCOUNT" elementType="Argument">
+            <stringProp name="Argument.name">LOOPCOUNT</stringProp>
+            <stringProp name="Argument.value">100</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
       </elementProp>
       <stringProp name="TestPlan.user_define_classpath"></stringProp>
     </TestPlan>
@@ -33,7 +44,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <intProp name="LoopController.loops">-1</intProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">15</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${THREADS}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">0</stringProp>
         <longProp name="ThreadGroup.start_time">1367268118000</longProp>
         <longProp name="ThreadGroup.end_time">1367268118000</longProp>
@@ -44,7 +55,7 @@
       <hashTree>
         <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
           <boolProp name="LoopController.continue_forever">true</boolProp>
-          <stringProp name="LoopController.loops">100</stringProp>
+          <stringProp name="LoopController.loops">${LOOPCOUNT}</stringProp>
         </LoopController>
         <hashTree>
           <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="${URL}" enabled="true">
@@ -79,7 +90,7 @@
           </CounterConfig>
           <hashTree/>
           <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
-            <stringProp name="IfController.condition">&quot;${N}&quot;==&quot;100&quot;</stringProp>
+            <stringProp name="IfController.condition">&quot;${N}&quot;==&quot;${LOOPCOUNT}&quot;</stringProp>
             <boolProp name="IfController.evaluateAll">false</boolProp>
           </IfController>
           <hashTree>
@@ -90,7 +101,7 @@
             </TestAction>
             <hashTree>
               <SyncTimer guiclass="TestBeanGUI" testclass="SyncTimer" testname="Synchronizing Timer" enabled="true">
-                <intProp name="groupSize">15</intProp>
+                <stringProp name="groupSize">${THREADS}</stringProp>
                 <longProp name="timeoutInMs">0</longProp>
               </SyncTimer>
               <hashTree/>
