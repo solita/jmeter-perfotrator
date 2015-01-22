@@ -1,0 +1,2 @@
+call apache-jmeter\bin\jmeter.bat -n -t project\TestUrls.jmx -j results\jmeter.log
+java -jar apache-jmeter\lib\ext\CMDRunner.jar --tool Reporter --generate-csv "results\Aggregate_Report.txt" --input-jtl "results\results.jtl" --plugin-type AggregateReport

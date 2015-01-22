@@ -1,0 +1,1 @@
+apache-jmeter\bin\jmeter.bat -t project\TestUrls.jmx -j results\jmeter.log
