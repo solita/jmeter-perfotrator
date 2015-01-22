@@ -79,7 +79,7 @@
           </CounterConfig>
           <hashTree/>
           <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
-            <stringProp name="IfController.condition">&quot;${N}&quot;==&quot;15&quot;</stringProp>
+            <stringProp name="IfController.condition">&quot;${N}&quot;==&quot;100&quot;</stringProp>
             <boolProp name="IfController.evaluateAll">false</boolProp>
           </IfController>
           <hashTree>
